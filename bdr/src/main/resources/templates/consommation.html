@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body >
+	<div>
+	<div>
+	<center>
+		<form th:action="@{/consommation}">
+			    Nom: <input type="text" name="nom">
+				Prenom:<input type="text" name="prenom">
+				Periode Debut: <input type="text" name="pd">
+				Periode Fin:<input type="text" name="pf">
+			<input type="submit" value="chercher"> 
+		</form>
+		</center>
+	</div>
+	 <br/><br/><br/><br/><br/>
+	<div>
+		<center>
+		<table>
+			<thead>
+				<tr>
+				<th>Time</th>
+				<th>Nom</th>
+				<th>Prenom</th>
+				<th>Consommation</th>
+				</tr>
+			</thead>
+			<tbody> 
+			<tr th:each="consommation : ${consommations}">
+			    	<td><span th:text="${consommation.time}"/></td>
+					<td><span th:text="${consommation.nom}"/></td>
+					<td><span th:text="${consommation.prenom}"/></td>
+					<td><span th:text="${consommation.consommation}"/></td>
+				</tr>
+			
+			</tbody>
+		</table>
+		</center>
+	</div>
+	<h1 th:if=${moy}>la moyenne est: <span  th:text=${moy}></span></h1>
+	
+</body>
+</html>

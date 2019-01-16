@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+	<div><center>
+		<form th:action="@{/meteo}">
+			Ville : <input type="text" name="v">
+			
+				Periode Debut: <input type="text" name="pd">
+				Periode Fin:<input type="text" name="pf">
+			<input type="submit" value="chercher"> 
+		</form>
+		</center>
+		 <br/><br/><br/><br/><br/>
+	</div>
+	<center>
+		<table>
+			<thead>
+				<tr>
+					<th>Time</th>
+					<th>Temperature</th>
+					<th>Ville</th>
+				</tr>
+			</thead>
+			<tbody>
+			<tr th:each="meteo : ${meteos1}">
+					<td><span th:text="${meteo.time}"> Title </span></td>
+					<td><span th:text="${meteo.temperature}"> Title </span></td>
+					<td><span th:text="${meteo.ville}"> Author </span></td>
+				</tr>
+			</tbody>
+		</table>
+	</center>	
+	</div>
+	 <h1 th:if=${moye}>la moyenne est: <span  th:text=${moye}></span></h1>
+	<div>
+</body>
+</html>
